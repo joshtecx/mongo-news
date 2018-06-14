@@ -21,7 +21,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // CONNECT TO MONGO
-mongoose.connect("mongodb://localhost/mongoNews");
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoNews";
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
+
 
 // ROUTES
 app.get("/scrape", function(req, res){
