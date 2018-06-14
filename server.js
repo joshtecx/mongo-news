@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const db = require("./models");
 const axios = require("axios");
 const logger = require("morgan");
+const expHbars = require('express-handlebars');
 
 // INITIALIZE EXPRESS
 const app = express();
@@ -19,6 +20,11 @@ const PORT = 3000;
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
+// HANDLEBARS
+app.set('views', path.join(__dirname, 'views'));
+app.engine("handlebars", expHbars({defaultLayout: "main"}));
+app.set("view engine", "handlebars");
 
 // CONNECT TO MONGO
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoNews";

@@ -1,0 +1,19 @@
+<div class="scrape">
+    <button id="scraper">Scrape for news!</button>
+</div>
+
+<div id="wrapper">
+    {{#each scraped}}
+        <div id="articles">
+            <div class="title" data-id="{{_id}}"><a href="{{link}}" target="_blank">{{title}}</a></div>
+            <div class="notes" data-id="{{_id}}">Notes</div>
+            <div id="{{_id}}" class="noteSection" data-id="{{_id}}"></div>
+            <div>
+                <textarea id="Note{{_id}}" class="noteArea" data-id="{{_id}}"></textarea>
+                <button class="submit" data-id="{{_id}}">Submit</button>
+            </div>
+        </div>
+    {{/each}}
+</div>
+
+<script src="../public/app.js"></script>
