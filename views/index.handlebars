@@ -1,9 +1,9 @@
-<div class="scrape">
+<div class="options">
     <button id="scraper">Scrape for news!</button>
 </div>
 
 <div id="wrapper">
-    {{#each scraped}}
+    {{#each result}}
         <div id="articles">
             <div class="title" data-id="{{_id}}"><a href="{{link}}" target="_blank">{{title}}</a></div>
             <div class="notes" data-id="{{_id}}">Notes</div>
@@ -16,4 +16,3 @@
     {{/each}}
 </div>
 
-<script src="../public/app.js"></script>
