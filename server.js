@@ -15,7 +15,7 @@ const path = require("path");
 // INITIALIZE EXPRESS
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // MIDDLEWARE
 app.use(logger("dev"));
