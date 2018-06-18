@@ -69,8 +69,9 @@ app.get("/", function(req, res){
         });
 });
 
-app.get("/articles", function(req, res) {
-    db.Article.find({})
+app.get("/articles/:id", function(req, res) {
+    db.Article.findOne({_id: req.params.id})
+        .populate("note")
         .then(function(dbArticle){
             res.json(dbArticle);
         })
